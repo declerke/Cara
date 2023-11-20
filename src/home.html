@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cara</title>
+    <script src="https://kit.fontawesome.com/a2600dddb8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Link to the CSS file -->
+    
+<script>
+    window.fbAsyncInit = function () {
+            FB.init({
+                appId: '{727440249443551}',
+                cookie: true,
+                xfbml: true,
+                version: '{api-version}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+     function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+  </script>
+  
+</head>
+
+<body>
+    <h2>Welcome to Cara | Discover with Elegance!</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <!-- Twitter button -->
+                 <a href="#" class="social" id="twitterSignIn"><i class="fa-brands fa-x-twitter"></i></a>
+
+                    <!-- Facebook button -->
+                 <a href="#" class="social" id="facebookSignIn"><i class="fa fa-facebook"></i></a>
+
+                    <!-- Google button -->
+                 <a href="#" class="social" id="googleSignIn"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" id="username" placeholder="Name" />
+                <input type="email" id="email" name="email" placeholder="E-mail" />
+                <input type="password" id="password" name="password" placeholder="Password" />
+                <button type="submit" id="signUp" name="signup_submit" value="Sign Up">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <!-- Twitter button -->
+                 <a href="#" class="social" id="twitterSignIn"><i class="fa-brands fa-x-twitter"></i></a>
+
+                    <!-- Facebook button -->
+                 <a href="#" class="social" id="facebookSignIn"><i class="fa fa-facebook"></i></a>
+
+                    <!-- Google button -->
+                 <a href="#" class="social" id="googleSignIn"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" id="email" name="email" placeholder="E-mail" />
+                <input type="password" id="password" name="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button type="submit" id="signIn" name="signin_submit" value="Sign In">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signInOverlay">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Your portal to a world of fashion and luxury awaits. At Cara, we believe in the art of exploration
+                        and style. Unlock your personalized shopping experience as you embark on a journey that combines
+                        elegance and innovation. Stay connected with us to access the latest trends, exclusive offers,
+                        and a community of fashion enthusiasts. Embrace the world with sophistication, and let's elevate
+                        your style together.</p>
+                    <button class="ghost" id="signUpOverlay">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+    // Import necessary modules and SDKs
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { FacebookAuthProvider, TwitterAuthProvider, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB1ikbsH_95zVDoQiRav6tk9Z4r9c8wOCQ",
+    authDomain: "cara-ab196.firebaseapp.com",
+    databaseURL: "https://cara-ab196-default-rtdb.firebaseio.com",
+    projectId: "cara-ab196",
+    storageBucket: "cara-ab196.appspot.com",
+    messagingSenderId: "883685796760",
+    appId: "1:883685796760:web:00d725aa84ed3a8a3519ed"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+// Function to sign in with Facebook
+const signInWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Handle successful sign-in
+            const user = result.user;
+            console.log("Facebook Sign-in Successful:", user);
+            // Additional actions after successful sign-in, if needed
+        })
+        .catch((error) => {
+            // Handle errors
+            console.error("Facebook Sign-in Error:", error.message);
+        });
+};
+
+// Function to sign in with Twitter
+const signInWithTwitter = () => {
+    const provider = new TwitterAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Handle successful sign-in
+            const user = result.user;
+            console.log("Twitter Sign-in Successful:", user);
+            // Additional actions after successful sign-in, if needed
+        })
+        .catch((error) => {
+            // Handle errors
+            console.error("Twitter Sign-in Error:", error.message);
+        });
+};
+
+// Function to sign in with Google
+const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Handle successful sign-in
+            const user = result.user;
+            console.log("Google Sign-in Successful:", user);
+            // Additional actions after successful sign-in, if needed
+        })
+        .catch((error) => {
+            // Handle errors
+            console.error("Google Sign-in Error:", error.message);
+        });
+};
+
+// Assume this function is called after the user clicks a login button
+function loginWithFacebook() {
+    FB.login(function (response) {
+        // Check the login status
+        if (response.status === 'connected') {
+            // User is logged into Facebook and your app
+            handleLoggedInUser(response.authResponse);
+        } else if (response.status === 'not_authorized') {
+            // User is logged into Facebook but not your app
+            handleNotAuthorizedUser();
+        } else {
+            // User is not logged into Facebook, or FB.logout() was called
+            handleUnknownUser();
+        }
+    }, { scope: 'email' }); // You can add additional permissions as needed
+}
+
+function handleLoggedInUser(authResponse) {
+    // Redirect the user to your app's logged-in experience
+    // You can also perform additional actions using authResponse
+    console.log('User is logged in:', authResponse);
+}
+
+function handleNotAuthorizedUser() {
+    // Prompt the user with the Login dialog or show the Login Button
+    console.log('User is logged into Facebook but not authorized for your app');
+    // You might want to display a message or UI element to encourage login
+}
+
+function handleUnknownUser() {
+    // Prompt the user with the Login dialog or show the Login Button
+    console.log('User is not logged into Facebook or unknown login status');
+    // You might want to display a message or UI element to encourage login
+}
+    // Use the correct button IDs
+     const twitterSignInButton = document.getElementById("twitterSignIn");
+     const facebookSignInButton = document.getElementById("facebookSignIn");
+     const googleSignInButton = document.getElementById("googleSignIn");
+
+    // Event listeners for social sign-in buttons
+     twitterSignInButton.addEventListener("click", signInWithTwitter);
+     facebookSignInButton.addEventListener("click", signInWithFacebook);
+     googleSignInButton.addEventListener("click", signInWithGoogle);
+
+    // ... (your existing code, e.g., sign up, sign in, etc.)
+
+    // Use the correct button IDs
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+
+    signUpButton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        console.log("Username:", username);
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        const userRef = ref(database, 'users/' + user.uid);
+        const userData = {
+            name: username,
+            email: email,
+        };
+
+        console.log('User created:', user);
+
+        set(userRef, userData)
+            .then(() => {
+                console.log('User data saved successfully:', userData);
+            })
+            .catch((error) => {
+                console.error('Error saving user data:', error.message);
+            });
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error:', errorCode, errorMessage);
+    });
+});
+
+    // Use the correct button IDs
+    signInButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent the form from submitting
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    console.log("Signing in with email and password...");
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            const dt = new Date();
+            update(ref(database, 'users/' + user.uid), {
+                last_login: dt,
+            })
+                .then(() => {
+                    console.log('User last login updated successfully:', dt);
+                })
+                .catch((error) => {
+                    console.error('Error updating last login:', error.message);
+                });
+
+            alert('User logged in!');
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            alert(errorMessage);
+        });
+    container.classList.remove("right-panel-active");
+});
+
+// Adjust the code to select buttons inside the overlay
+const signUpOverlayButton = document.getElementById("signUpOverlay");
+const signInOverlayButton = document.getElementById("signInOverlay");
+
+signUpOverlayButton.addEventListener("click", () => {
+    container.classList.add("right-panel-active");
+});
+
+signInOverlayButton.addEventListener("click", () => {
+    container.classList.remove("right-panel-active");
+});
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        const uid = user.uid;
+        console.log("User is signed in with UID:", uid);
+        // Perform actions for signed-in user
+    } else {
+        // User is signed out
+        console.log("User is signed out");
+        // Perform actions for signed-out user
+    }
+});
+
+signOut(auth)
+    .then(() => {
+        // Sign-out successful.
+        console.log("User signed out successfully");
+        // Perform actions after sign-out
+    })
+    .catch((error) => {
+        // An error happened.
+        console.error("Error signing out:", error.message);
+    });
+
+    // Function to display a notification message to the user
+     function displayNotification(message, type) {
+     const notificationElement = document.getElementById('notification');
+     notificationElement.innerHTML = message;
+     notificationElement.classList.add(type); // Apply a CSS class for styling
+     setTimeout(() => {
+        notificationElement.innerHTML = ''; // Clear the notification
+        notificationElement.classList.remove(type);
+     }, 3000); // Display for 3 seconds (adjust as needed)
+     }
+
+    // After successful sign-in
+     displayNotification('Sign-in successful', 'success');
+
+    // In case of an error
+     displayNotification('Sign-in failed. Please check your credentials.', 'error');
+
+// In your registration function
+createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        const userData = {
+            name: username,
+            email: email,
+        };
+        // Add the user's data to Firestore
+        const userRef = doc(database, 'users', user.uid); // Reference to the user's document
+        setDoc(userRef, userData)
+            .then(() => {
+                console.log('User data saved successfully:', userData);
+            })
+            .catch((error) => {
+                console.error('Error saving user data:', error.message);
+            });
+        displayNotification('Registration successful', 'success');
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error:', errorCode, errorMessage);
+        displayNotification(`Error: ${errorMessage}`, 'error');
+    });
+
+     const firestore = getFirestore(app);
+     const usersCollection = collection(firestore, "users");
+     const querySnapshot = await getDocs(usersCollection);
+
+     createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        const userData = {
+            name: username,
+            email: email,
+        };
+
+        // Create a reference to the user's document in Firestore
+        const userDocRef = doc(firestore, "users", user.uid);
+
+        // Set the user's data in Firestore
+        setDoc(userDocRef, userData)
+            .then(() => {
+                console.log('User data saved successfully:', userData);
+                displayNotification('Registration successful', 'success');
+            })
+            .catch((error) => {
+                console.error('Error saving user data:', error.message);
+                displayNotification(`Error: ${error.message}`, 'error');
+            });
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error:', errorCode, errorMessage);
+        displayNotification(`Error: ${errorMessage}`, 'error');
+    });
+
+ const userUID = 'the_user_uid'; // Replace with the actual user's UID
+
+// Create a reference to the user's document in Firestore
+ const userDocRef = doc(firestore, "users", userUID);
+
+// Retrieve the user's data
+ getDoc(userDocRef)
+    .then((doc) => {
+        if (doc.exists()) {
+            const userData = doc.data();
+            console.log('User data:', userData);
+            // Now you can use userData in your application
+        } else {
+            console.log('User document does not exist.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error retrieving user data:', error.message);
+    });
+
+
+</script>
+<script src="scripts.js"></script> <!-- Link to the JavaScript file -->
+
+</html>
