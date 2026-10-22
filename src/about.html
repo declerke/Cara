@@ -1,147 +1,98 @@
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cara</title>
-    <script src="https://kit.fontawesome.com/a2600dddb8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About the Cara clothing storefront.">
+  <meta name="theme-color" content="#f7f6f0">
+  <title>About Cara</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="about">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="utility-row">
+      <a class="brand" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
+      <form class="site-search" id="site-search" action="shop.html" method="get" role="search">
+        <label class="visually-hidden" for="site-search-input">Search the Cara collection</label>
+        <input id="site-search-input" type="search" name="q" placeholder="Search the collection" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <a class="cart-link" id="cart-link" href="cart.html">
+        <span>Cart</span><span class="cart-count" id="cart-count" data-cart-count aria-live="polite" aria-atomic="true">0</span>
+      </a>
+    </div>
+  </header>
 
-<section id="header">
-    <a href="#"><img src="c:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" class="logo" alt="Cara"></a>
-
-    <div>
-        <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a  href="blog.html">Blog</a></li>
-            <li><a class="active" href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="home.html">Login</a></li>
-            <li><a href="cart.html"><i class="fa-solid fa-store"></i></a></li>
-        </ul>
+<main id="main-content" class="site-main page-main secondary-page">
+  <section class="page-intro" aria-labelledby="about-heading">
+    <p class="eyebrow">The project</p><h1 id="about-heading">About Cara</h1>
+    <p>A familiar storefront identity, presented as a local browser demo.</p>
+  </section>
+  <section class="content-panel about-layout" id="about-content" aria-labelledby="about-story-heading">
+    <div class="about-copy">
+      <p class="eyebrow">A student storefront, refreshed</p>
+      <h2 id="about-story-heading">A small shop interface with a clear demo boundary</h2>
+      <p>Cara began as a university storefront assignment. This rebuild keeps its name, clothing catalog, KSh sample prices, and supplied imagery while making the pages and shopping path work together.</p>
+      <p>The catalog and cart are examples for browsing in this browser. There is no connected store, customer service team, account system, fulfilment, or payment service behind the page.</p>
+      <a class="button button-dark" href="shop.html">Browse the collection</a>
     </div>
-</section>
-
-<section id="page-header" class="about-header">
-    <h2>#KnowUs</h2>
-    <p>We are here for you!</p>
-</section>
-
-<section id="about-head" class="section-p1">
-    <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\about\a6.jpg" alt="">
-    <div>
-        <h2>Who We Are?</h2>
-        <p>Welcome to Cara House in Karen, Nairobi, where luxury meets elegance in this picturesque neighborhood. Our high-end clothing store aspires to capture the essence of sophistication and style, rivaling renowned brands like Louis Vuitton. At Cara, we believe that fashion is a reflection of one's individuality, and we invite you to explore our meticulously curated collection of exclusive attire. Embrace a world of opulence as you browse through our exquisite range of fashion-forward pieces, each carefully chosen to exude an aura of timeless elegance. Our commitment to providing you with the finest in fashion ensures that every visit to Cara House is a journey into the world of refined aesthetics and refined taste. Thank you for choosing Cara House, and we look forward to being your destination for sartorial excellence in Karen, Nairobi.</p>
-        <abbr title="">Create stunning images with as much or as little control as you like thanks to a choice of Basic and Creative modes.</abbr>
-        <br><br>
-
-        <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">Create stunning images with as much or as little control as you like thanks to a choice of Basic and Creative modes.</marquee>
+    <figure class="about-art">
+      <img src="../img/about/a6.jpg" alt="Illustration of a shopper browsing clothing on an online storefront" loading="lazy" decoding="async">
+      <figcaption>Original bundled illustration, reused for this demo.</figcaption>
+    </figure>
+  </section>
+  <section class="sample-notes" aria-label="What this demo includes">
+    <article class="sample-note"><p class="eyebrow">Browse</p><h2>One catalog</h2><p>Home, Shop, and product detail pages use the same 16 sample items.</p></article>
+    <article class="sample-note"><p class="eyebrow">Select</p><h2>A local cart</h2><p>Sizes and quantities stay in browser storage for this demo.</p></article>
+    <article class="sample-note"><p class="eyebrow">Review</p><h2>No purchase</h2><p>Checkout only clears the demo cart. It never creates an order or takes payment.</p></article>
+  </section>
+</main>
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+        <p>A clothing storefront interface.</p>
+      </div>
+      <nav class="footer-nav" id="footer-navigation" aria-label="Footer navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
     </div>
-</section>
-
-<section id="about-app" class="section-p1">
-    <h1>Download Our <a href="#">App</a></h1>
-    <div class="video">
-        <video autoplay muted loop src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\about\1.mp4"></video>
-    </div>
-</section>
-
-<section id="feature" class="section-p1">
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f1.png" alt="features">
-        <h6>Free Shipping</h6>
-    </div>
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f2.png" alt="features">
-        <h6>Online Order</h6>
-    </div>
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f3.png" alt="features">
-        <h6>Save Money</h6>
-    </div>
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f4.png" alt="features">
-        <h6>Promotions</h6>
-    </div>
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f5.png" alt="features">
-        <h6>Happy Sell</h6>
-    </div>
-    <div class="fe-box">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\features\f6.png" alt="features">
-        <h6>F24/7 Support</h6>
-    </div>
-    
-
-</section>
-
-<section id="newsletter" class="section-p1 section-m1">
-
-    <div class="newstext">
-        <h4>Sign Up For Newsletter</h4>
-        <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
-    </div>
-    <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
-    </div>
-    
+    <section class="newsletter-panel" aria-labelledby="newsletter-heading">
+      <div>
+        <p class="eyebrow">Stay in the loop</p><h2 id="newsletter-heading">Newsletter demo</h2>
+        <p>This sample signup is not connected to an email service.</p>
+      </div>
+      <div class="demo-control-group" data-demo-form="newsletter">
+        <label for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" autocomplete="off" data-demo-field>
+        <button class="button button-dark" type="button" data-demo-submit>Show demo response</button>
+        <p class="demo-feedback" data-demo-feedback role="status" aria-live="polite"></p>
+      </div>
     </section>
-
-<footer class="section-p1">
-
-    <div class="col">
-        <img class="logo" src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" alt="Cara">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> Cara House
-Karen
-Nairobi, Kenya</p>
-        <p><strong>Phone:</strong> 0745668754/ 0727324355</p>
-        <p><strong>Hours:</strong> 10:00 - 18:00/ Mon - Sat</p>
-        <div class="follow">
-             <h4>Follow us</h4>
-             <div class="icon">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-google"></i>
-             </div>
-        </div>
+    <div class="footer-bottom">
+      <p>Cara · Local storefront</p>
+      <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
     </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="col install">
-        <h4>Install Our App</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\app.jpg" alt="">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\play.jpg" alt="">
-        </div>
-        <p>Secured Payment Gateways</p>
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\pay.png" alt="">
-    </div>
-    <div class="copyright">
-        <p>© 2023, Cara etc - HTML CSS E-Commerce Template</p>
-    </div>
-</footer>
-
-    <script src="script.js"></script>
+  </footer>
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>

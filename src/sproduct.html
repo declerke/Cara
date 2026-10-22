@@ -1,220 +1,86 @@
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cara</title>
-    <script src="https://kit.fontawesome.com/a2600dddb8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="View an item from the Cara clothing collection.">
+  <meta name="theme-color" content="#f7f6f0">
+  <title>Product details — Cara</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-<section id="header">
-    <a href="#"><img src="c:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" class="logo" alt="Cara"></a>
-
-    <div>
-        <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="home.html">Login</a></li>
-            <li><a href="cart.html"><i class="fa-solid fa-store"></i></a></li>
-        </ul>
+<body data-page="product">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="utility-row">
+      <a class="brand" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" aria-current="page">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
+      <form class="site-search" id="site-search" action="shop.html" method="get" role="search">
+        <label class="visually-hidden" for="site-search-input">Search the Cara collection</label>
+        <input id="site-search-input" type="search" name="q" placeholder="Search the collection" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <a class="cart-link" id="cart-link" href="cart.html">
+        <span>Cart</span><span class="cart-count" id="cart-count" data-cart-count aria-live="polite" aria-atomic="true">0</span>
+      </a>
     </div>
-</section>
+  </header>
 
-<section id="prodetails" class="section-p1">
-    <div class="single-pro-image">
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f1.jpg" width="100%" id="MainImg" alt="" />
-        <div class="small-img-group">
-            <div class="small-img-col">
-                <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f1.jpg" width="100%" class="small-img" alt="">
-            </div>
-
-            <div class="small-img-col">
-                <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f2.jpg" width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-                <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f3.jpg" width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-                <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f4.jpg" width="100%" class="small-img" alt="">
-            </div>
-        </div>
+<main id="main-content" class="site-main page-main product-page">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><ol>
+    <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li aria-current="page">Product</li>
+  </ol></nav>
+  <section class="page-intro compact-intro" aria-labelledby="product-heading">
+    <p class="eyebrow">The collection</p><h1 id="product-heading">Product details</h1>
+    <p>Choose a size and quantity to add an item to this local demo cart. No order or payment will be submitted.</p>
+  </section>
+  <section class="product-detail-slot" id="product-detail" aria-label="Selected product">
+    <p class="slot-note" id="product-status" role="status" aria-live="polite">Product details will appear here.</p>
+  </section>
+  <p class="feedback-note" id="product-feedback" role="status" aria-live="polite"></p>
+</main>
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+        <p>A clothing storefront interface.</p>
+      </div>
+      <nav class="footer-nav" id="footer-navigation" aria-label="Footer navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" aria-current="page">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
     </div>
-    <div class="single-pro-details">
-        <h6>Home / T-Shirt</h6>
-        <h4>Men's Fashion T-Shirt</h4>
-        <h2>10,000 Ksh</h2>
-        <select>
-            <option>Select Size</option>
-            <option>XL</option>
-            <option>XXL</option>
-            <option>Small</option>
-            <option>Large</option>
-        </select>
-            <input type="number" value="1">
-            <button class="normal">Add to Cart</button>
-            <h4>Product Details</h4>
-            <span>The Gildan Ultra Cotton T-Shirt is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it in all the ultimate head-turning package</span>
+    <section class="newsletter-panel" aria-labelledby="newsletter-heading">
+      <div>
+        <p class="eyebrow">Stay in the loop</p><h2 id="newsletter-heading">Newsletter demo</h2>
+        <p>This sample signup is not connected to an email service.</p>
+      </div>
+      <div class="demo-control-group" data-demo-form="newsletter">
+        <label for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" autocomplete="off" data-demo-field>
+        <button class="button button-dark" type="button" data-demo-submit>Show demo response</button>
+        <p class="demo-feedback" data-demo-feedback role="status" aria-live="polite"></p>
+      </div>
+    </section>    <div class="footer-bottom">
+      <p>Cara · Local storefront</p>
+      <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
     </div>
-</section>
-
-<section id="product1" class="section-p1">
-    <h2>Featured Products</h2>
-    <p>Summer Collection New Modern Designs</p>
-    <div class="pro-container">
-           <div class="pro">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\n1.jpg" alt="Product Image">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-shirt</h5>
-                    <div class="star">
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i> 
-                    </div>
-                    <h4>7800 Ksh</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           </div>
-           <div class="pro">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\n2.jpg" alt="Product Image">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-shirt</h5>
-                    <div class="star">
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i> 
-                    </div>
-                    <h4>7800 Ksh</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           </div>
-           <div class="pro">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\n3.jpg" alt="Product Image">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-shirt</h5>
-                    <div class="star">
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i> 
-                    </div>
-                    <h4>7800 Ksh</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           </div>
-           <div class="pro">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\n4.jpg" alt="Product Image">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-shirt</h5>
-                    <div class="star">
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i>
-                       <i class="fa-solid fa-star"></i> 
-                    </div>
-                    <h4>7800 Ksh</h4>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
-           </div>
-    </div>
-    </section>
-
-<section id="newsletter" class="section-p1 section-m1">
-
-<div class="newstext">
-    <h4>Sign Up For Newsletter</h4>
-    <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
-</div>
-<div class="form">
-    <input type="text" placeholder="Your email address">
-    <button class="normal">Sign Up</button>
-</div>
-
-</section>
-
-<footer class="section-p1">
-
-    <div class="col">
-        <img class="logo" src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" alt="Cara">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> Cara House
-Karen
-Nairobi, Kenya</p>
-        <p><strong>Phone:</strong> 0745668754/ 0727324355</p>
-        <p><strong>Hours:</strong> 10:00 - 18:00/ Mon - Sat</p>
-        <div class="follow">
-             <h4>Follow us</h4>
-             <div class="icon">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-google"></i>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="col install">
-        <h4>Install Our App</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\app.jpg" alt="">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\play.jpg" alt="">
-        </div>
-        <p>Secured Payment Gateways</p>
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\pay.png" alt="">
-    </div>
-    <div class="copyright">
-        <p>© 2023, Cara etc - HTML CSS E-Commerce Template</p>
-    </div>
-</footer>
-
-<script>
-    var MainImg = document.getElementById("MainImg");
-    var smallImg = document.getElementsByClassName("small-img");
-
-    smallImg[0].onclick = function(){
-        MainImg.src = smallImg[0].src;
-    }
-    smallImg[1].onclick = function(){
-        MainImg.src = smallImg[1].src;
-    }
-    smallImg[2].onclick = function(){
-        MainImg.src = smallImg[2].src;
-    }
-    smallImg[3].onclick = function(){
-        MainImg.src = smallImg[3].src;
-    }
-</script>
-
-    <script src="script.js"></script>
+  </footer>
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>

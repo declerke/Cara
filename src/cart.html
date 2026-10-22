@@ -1,155 +1,91 @@
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cara</title>
-    <script src="https://kit.fontawesome.com/a2600dddb8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review items in the Cara storefront cart.">
+  <meta name="theme-color" content="#f7f6f0">
+  <title>Cart — Cara</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="cart">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="utility-row">
+      <a class="brand" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
+      <form class="site-search" id="site-search" action="shop.html" method="get" role="search">
+        <label class="visually-hidden" for="site-search-input">Search the Cara collection</label>
+        <input id="site-search-input" type="search" name="q" placeholder="Search the collection" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <a class="cart-link" id="cart-link" href="cart.html" aria-current="page">
+        <span>Cart</span><span class="cart-count" id="cart-count" data-cart-count aria-live="polite" aria-atomic="true">0</span>
+      </a>
+    </div>
+  </header>
 
-<section id="header">
-    <a href="#"><img src="c:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" class="logo" alt="Cara"></a>
-    <div>
-        <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a  href="contact.html">Contact</a></li>
-            <li><a href="home.html">Login</a></li>
-            <li><a class="active" href="cart.html"><i class="fa-solid fa-store"></i></a></li>
-        </ul>
+<main id="main-content" class="site-main page-main cart-page">
+  <section class="page-intro" aria-labelledby="cart-heading">
+    <p class="eyebrow">Your selection</p><h1 id="cart-heading">Cart</h1>
+    <p>This local cart is a demo. No order or payment will be submitted.</p>
+  </section>
+  <section class="cart-layout" id="cart-content" aria-label="Cart contents">
+    <div class="cart-items-panel">
+      <ul class="cart-items" id="cart-items" aria-label="Cart items" aria-live="polite"></ul>
+      <p class="slot-note" id="cart-empty-state" role="status">Your cart is empty.</p>
     </div>
-</section>
-
-<section id="page-header" class="about-header">
-    <h2>#let's_talk</h2>
-    <p>Have any questions?</p>
-</section>
-
-<section id="cart" class="section-p1">
-    <div class="table-container">
-    <table width="100%">
-        <thead>
-            <tr>
-                <td>Remove</td>
-                <td>Image</td>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Subtotal</td>
-            </tr>
-        </thead>
-        <tbody id="cartBody">
-            <tr>
-                <td><a href=""><i class="fa-regular fa-circle-xmark"></i></a></td>
-                <td><img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f1.jpg" alt=""></td>
-                <td>Cartoon Astronaut T-shirt</td>
-                <td>7800 Ksh</td>
-                <td><input type="number" value="1"></td>
-                <td>7800 Ksh</td>
-            </tr>
-            <tr>
-                <td><a href=""><i class="fa-regular fa-circle-xmark"></i></a></td>
-                <td><img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f2.jpg" alt=""></td>
-                <td>Beach Art Shirt - Green and Pink Flowers</td>
-                <td>7800 Ksh</td>
-                <td><input type="number" value="1"></td>
-                <td>7800 Ksh</td>
-            </tr>
-            <tr>
-                <td><a href=""><i class="fa-regular fa-circle-xmark"></i></a></td>
-                <td><img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\products\f3.jpg" alt=""></td>
-                <td>Beach Art Shirt - Red and Beige Flowers</td>
-                <td>7800 Ksh</td>
-                <td><input type="number" value="1"></td>
-                <td>7800 Ksh</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-<section id="cart-add" class="section-p1">
-    <div id="coupon">
-        <h3>Apply Coupon</h3>
-        <div>
-            <input type="text" placeholder="Enter Your Coupon">
-            <button class="normal">Apply</button>
-        </div>
+    <aside class="cart-summary" id="cart-summary" aria-labelledby="cart-summary-heading">
+      <p class="eyebrow">Summary</p><h2 id="cart-summary-heading">Cart summary</h2>
+      <div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">KSh 0</strong></div>
+      <div id="cart-actions"></div>
+      <p class="feedback-note" id="cart-feedback" role="status" aria-live="polite"></p>
+    </aside>
+  </section>
+</main>
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="index.html" aria-label="Cara home"><img src="../img/logo.png" alt="Cara"></a>
+        <p>A clothing storefront interface.</p>
+      </div>
+      <nav class="footer-nav" id="footer-navigation" aria-label="Footer navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="home.html">Account</a></li>
+      </ul>
+    </nav>
     </div>
-    <div id="subtotal">
-        <h3>Cart Totals</h3>
-        <table>
-            <tr>
-                <td>Cart Subtotal</td>
-                <td id="cartSubtotal">23,400 Ksh</td>
-            </tr>
-            <tr>
-                <td>Shipping</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong id="cartTotal">23,400 Ksh</strong></td>
-            </tr>
-        </table>
-        <button class="normal">Proceed to checkout</button>
+    <section class="newsletter-panel" aria-labelledby="newsletter-heading">
+      <div>
+        <p class="eyebrow">Stay in the loop</p><h2 id="newsletter-heading">Newsletter demo</h2>
+        <p>This sample signup is not connected to an email service.</p>
+      </div>
+      <div class="demo-control-group" data-demo-form="newsletter">
+        <label for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" autocomplete="off" data-demo-field>
+        <button class="button button-dark" type="button" data-demo-submit>Show demo response</button>
+        <p class="demo-feedback" data-demo-feedback role="status" aria-live="polite"></p>
+      </div>
+    </section>    <div class="footer-bottom">
+      <p>Cara · Local storefront</p>
+      <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
     </div>
-</section>
-
-<footer class="section-p1">
-
-    <div class="col">
-        <img class="logo" src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\logo.png" alt="Cara">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> Cara House
-Karen
-Nairobi, Kenya</p>
-        <p><strong>Phone:</strong> 0745668754/ 0727324355</p>
-        <p><strong>Hours:</strong> 10:00 - 18:00/ Mon - Sat</p>
-        <div class="follow">
-             <h4>Follow us</h4>
-             <div class="icon">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-google"></i>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="col install">
-        <h4>Install Our App</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\app.jpg" alt="">
-            <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\play.jpg" alt="">
-        </div>
-        <p>Secured Payment Gateways</p>
-        <img src="C:\Users\Maverick De' Clerke\Documents\GitHub\Cara\img\pay\pay.png" alt="">
-    </div>
-    <div class="copyright">
-        <p>© 2023, Cara etc - HTML CSS E-Commerce Template</p>
-    </div>
-</footer>
-    <script src="script.js"></script>
-    <script src="addtocart.js"></script>
+  </footer>
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>

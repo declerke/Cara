@@ -1,0 +1,5 @@
+# Local project notes
+/projectsummary.md
+.env
+.env.*
+!.env.example
